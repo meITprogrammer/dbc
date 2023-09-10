@@ -1,13 +1,18 @@
-import React from "react";
+import React from "react"
+import "./App.css"
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Main from "./components/Main";
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-              <h1>Learn React</h1>
-      </header>
+    <div className="app-container">
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 }
 
-export default App;
+
