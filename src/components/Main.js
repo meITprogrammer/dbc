@@ -18,7 +18,11 @@ export default function Main() {
                 Company Name    
                 <input className="input-company" placeholder=""></input>
             </h4>
-            <button className="new-card-submit">Submit</button>
+            <h4 className="main-content">
+                Email Address    
+                <input className="input-email" placeholder="eg hello@futureskills.co.nz"></input>
+            </h4>
+            <button className="form-one-next">Next</button>
 
         </div>
     )
