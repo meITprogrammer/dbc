@@ -1,11 +1,14 @@
 import React from "react";
+import logo from "../images/logo_fsa.png"
 
-function Main() {
+function Create() {
     return(
+    <div>
+        <img src={logo} />
         <div className="main-container">
-            <h3 className="main-heading main-content">
-                Creat a New Business Card
-            </h3>
+            <h2 className="main-heading main-content">
+                Create a New Business Card
+            </h2>
             <h4 className="main-content">
                 Name    
                 <input className="input-name" placeholder="Enter your full name here"></input>
@@ -38,7 +41,8 @@ function Main() {
             <button className="form-one-next">Submit</button>
 
         </div>
+    </div>
     )
 }
 
-export default Main;
+export default Create;

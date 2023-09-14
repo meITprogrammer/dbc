@@ -21,9 +21,6 @@ body {
 
 .header-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 .footer-container {
@@ -32,4 +29,9 @@ body {
   padding-top: 0;
   bottom: 0;
   position: absolute;
+}
+
+img {
+  width: 250px;
+  height: 200px;
 }
