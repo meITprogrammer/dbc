@@ -22,7 +22,16 @@ export default function Main() {
                 Email Address    
                 <input className="input-email" placeholder="eg hello@futureskills.co.nz"></input>
             </h4>
-            <button className="form-one-next">Next</button>
+            <h4 className="main-content">
+                Add Profile Photo 
+                <button>Select File</button>
+            </h4>
+            <h4 className="main-content">
+                Add Company Logo 
+                <button>Select File</button>
+            </h4>
+
+            <button className="form-one-next">Submit</button>
 
         </div>
     )

@@ -6,8 +6,8 @@ import "../App.css"
 export default function Header() {
     return(
         <div className="header-contatiner">
-            <img src={logo} alt="" 
-            width="200px" height="200px"/>
+            <img className="logo" src={logo} alt="" 
+            width="300px" height="250px"/>
         </div>
     )
 }
