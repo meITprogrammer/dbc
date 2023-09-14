@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "../images/logo_fsa.png"
+import { Link } from "react-router-dom";
+import "../App.css";
 
 function Create() {
     return(
@@ -38,8 +40,10 @@ function Create() {
                 <input className="input-password" placeholder=""></input>
             </h4>
 
-            <button className="form-one-next">Submit</button>
-
+            <div><button className="form-one-next">Submit</button></div>
+            <div>
+            <button><Link to='/' className="link backToMain">Back to Main Page</Link></button>
+            </div>
         </div>
     </div>
     )

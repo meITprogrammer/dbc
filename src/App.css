@@ -35,3 +35,7 @@ img {
   width: 250px;
   height: 200px;
 }
+
+.link {
+  text-decoration: none;
+}
