@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Main() {
+function Main() {
     return(
         <div className="main-container">
             <h3 className="main-heading main-content">
@@ -30,9 +30,15 @@ export default function Main() {
                 Add Company Logo 
                 <button>Select File</button>
             </h4>
+            <h4 className="main-content">
+                Password 
+                <input className="input-password" placeholder=""></input>
+            </h4>
 
             <button className="form-one-next">Submit</button>
 
         </div>
     )
 }
+
+export default Main;
