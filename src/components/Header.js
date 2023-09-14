@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../images/logo.jpg";
+import logo from "../images/logo_fsa.png";
 import "../App.css"
 
 
