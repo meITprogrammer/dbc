@@ -42,7 +42,7 @@ function Create() {
 
             <div><button className="form-one-next">Submit</button></div>
             <div>
-            <button><Link to='/' className="link backToMain">Back to Main Page</Link></button>
+            <button><Link to='/dbc/' className="link backToMain">Back to Main Page</Link></button>
             </div>
         </div>
     </div>

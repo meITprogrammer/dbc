@@ -7,8 +7,8 @@ function Homepage() {
  return (
  <div align="center">
     <h1> Welcome to FSA Biz Card</h1>
-    <button><Link to='/Create' className='link create'>Create New Card</Link></button>
-    <button><Link to='/Update' className='link update'>Update Card</Link></button>
+    <button><Link to='/dbc/Create' className='link create'>Create New Card</Link></button>
+    <button><Link to='/dbc/Update' className='link update'>Update Card</Link></button>
  </div>
  );
 };
