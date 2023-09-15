@@ -26,32 +26,32 @@ function Create() {
                 Create a New Business Card
             </h2>
             <form onSubmit={handleSubmit}>
-                <div class="form-group">
-                    <label for="name">Name:</label>
+                <div className="form-group">
+                    <label htmlFor="name">Name:</label>
                     <input type="text" name="name" className="input-name" placeholder={name} onChange={(e) => setName(e.target.value)}/>
                 </div>
-                <div class="form-group">
-                    <label for="job">Job Title:</label>
+                <div className="form-group">
+                    <label htmlFor="job">Job Title:</label>
                     <input type="text" name="job" className="input-job" placeholder={job} onChange={(e) => setJob(e.target.value)}/>
                 </div>
-                <div class="form-group">
-                    <label for="company">Company:</label>
+                <div className="form-group">
+                    <label htmlFor="company">Company:</label>
                     <input type="text" name="company" className="input-company" placeholder={company} onChange={(e) => setCompany(e.target.value)}/>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email Address:</label>
+                <div className="form-group">
+                    <label htmlFor="email">Email Address:</label>
                     <input type="text" name="email" className="input-email" placeholder={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
-                <div class="form-group">
-                    <label for="profilePhoto">Profile Photo: </label>
+                <div className="form-group">
+                    <label htmlFor="profilePhoto">Profile Photo: </label>
                     <input type="file" name="profilePhoto" onChange={(e) => setProfilePhoto (e.target.files)}></input>
                 </div>
-                <div class="form-group">
-                     <label for="companyLogo">Company Logo:</label>
+                <div className="form-group">
+                     <label htmlFor="companyLogo">Company Logo:</label>
                     <input type="file" name="companyLogo" onChange={(e) => setCompanyLogo (e.target.files)} ></input>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
+                <div className="form-group">
+                    <label htmlFor="password">Password:</label>
                     <input type="text" name="password" className="input-password" placeholder={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <div><button className="form-one-next">Submit</button></div>            
