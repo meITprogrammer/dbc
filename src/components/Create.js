@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../images/logo_fsa.png"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.css";
 
 function Create() {
@@ -11,12 +11,13 @@ function Create() {
     const [profilePhoto, setProfilePhoto] = useState();
     const [companyLogo, setCompanyLogo] = useState();
     const [password, setPassword] = useState();
+    const navigate = useNavigate();
 
     const handleSubmit=(e)=> {
         e.preventDefault();
-        console.log('Name: ' +name+' Job Title: '+job+' Company: '+company+'Email Address: '+email+' Profile Photo: '+profilePhoto+' Company Logo: '+companyLogo+' Password: '+password)
-    }
-        
+        console.log('Name: ' +name+' Job Title: '+job+' Company: '+company+'Email Address: '+email+' Profile Photo: '+profilePhoto+' Company Logo: '+companyLogo+' Password: '+password);
+        navigate ("/dbc/Card");  
+    }     
 
     return(
     <div>
