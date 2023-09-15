@@ -12,41 +12,47 @@ function Create() {
     const [companyLogo, setCompanyLogo] = useState();
     const [password, setPassword] = useState();
 
+    const handleSubmit=(e)=> {
+        e.preventDefault();
+        console.log('Name: ' +name+' Job Title: '+job+' Company: '+company+'Email Address: '+email+' Profile Photo: '+profilePhoto+' Company Logo: '+companyLogo+' Password: '+password)
+    }
+        
+
     return(
     <div>
         <div className="main-container">
-            <img src={logo} />
+            <img alt="fsa_logo" src={logo} />
             <h2 className="main-heading main-content">
                 Create a New Business Card
             </h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" name="name" className="input-name" placeholder={name}/>
+                    <input type="text" name="name" className="input-name" placeholder={name} onChange={(e) => setName(e.target.value)}/>
                 </div>
                 <div class="form-group">
                     <label for="job">Job Title:</label>
-                    <input type="text" name="job" className="input-job" placeholder={job}/>
+                    <input type="text" name="job" className="input-job" placeholder={job} onChange={(e) => setJob(e.target.value)}/>
                 </div>
                 <div class="form-group">
                     <label for="company">Company:</label>
-                    <input type="text" name="company" className="input-company" placeholder={company}/>
+                    <input type="text" name="company" className="input-company" placeholder={company} onChange={(e) => setCompany(e.target.value)}/>
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address:</label>
-                    <input type="text" name="email" className="input-email" placeholder={email}/>
+                    <input type="text" name="email" className="input-email" placeholder={email} onChange={(e) => setEmail(e.target.value)}/>
                 </div>
                 <div class="form-group">
                     <label for="profilePhoto">Profile Photo: </label>
-                    <button type="text" name="profilePhoto" className="input-profile-photo" placeholder={profilePhoto}>Select Photo</button>
+                    <input type="file" name="profilePhoto" onChange={(e) => setProfilePhoto (e.target.files)}></input>
                 </div>
                 <div class="form-group">
-                    <label for="companyLogo">Company Logo:</label>
-                    <button type="text" name="companyLogo" className="input-company-logo" placeholder={companyLogo}>Select Logo</button>
+                     <label for="companyLogo">Company Logo:</label>
+                    <input type="file" name="companyLogo" onChange={(e) => setCompanyLogo (e.target.files)} ></input>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="text" name="password" className="input-password" placeholder={password}/>
+                    <input type="text" name="password" className="input-password" placeholder={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <div><button className="form-one-next">Submit</button></div>            
             </form>            
