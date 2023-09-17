@@ -15,8 +15,10 @@ function Card() {
  <div align="center">
     <h1>Digital Business Card</h1>
     
-
-    <button><Link to='/dbc/' className='link backToMain'>Return to Main Page</Link></button>
+    <div className='form-one-submit'>
+        <button className='submit-button'><Link to='/dbc/' className='link backToMain'>Return to Main Page</Link></button>
+    </div>
+    
  
  </div>
  );
