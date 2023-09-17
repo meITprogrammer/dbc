@@ -8,6 +8,9 @@ function Create() {
     const [job, setJob] = useState();
     const [company, setCompany] = useState();
     const [email, setEmail] = useState();
+    const [mobile, setMobile] = useState();
+    const [website,setWebsite] = useState();
+    const [linkedin, setLinkedin] = useState();
     const [profilePhoto, setProfilePhoto] = useState();
     const [companyLogo, setCompanyLogo] = useState();
     const [password, setPassword] = useState();
@@ -15,7 +18,7 @@ function Create() {
 
     const handleSubmit=(e)=> {
         e.preventDefault();
-        console.log('Name: ' +name+' Job Title: '+job+' Company: '+company+'Email Address: '+email+' Profile Photo: '+profilePhoto+' Company Logo: '+companyLogo+' Password: '+password);
+        console.log('Name: ' +name+' Job Title: '+job+' Company: '+company+'Email Address: '+email+'Mobile #: '+mobile+'Website '+website+' Profile Photo: '+profilePhoto+' Company Logo: '+companyLogo+'LinkedIn: '+linkedin+' Password: '+password);
         navigate ("/dbc/Card");  
     }     
 
@@ -42,6 +45,18 @@ function Create() {
                 <div className="form-group">
                     <label htmlFor="email"></label>
                     <input type="text" name="email" className="input-email" placeholder="Email Address*" onChange={(e) => setEmail(e.target.value)}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="mobile"></label>
+                    <input type="text" name="mobile" className="input-mobile" placeholder="Mobile Number*" onChange={(e) => setMobile(e.target.value)}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="website"></label>
+                    <input type="text" name="website" className="input-website" placeholder="Website" onChange={(e) => setWebsite(e.target.value)}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="linkedin"></label>
+                    <input type="text" name="linkedin" className="input-linkedin" placeholder="LinkedIn" onChange={(e) => setLinkedin(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="profilePhoto">Profile Photo: </label>
