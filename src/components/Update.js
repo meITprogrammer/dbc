@@ -6,7 +6,10 @@ function Update() {
  return (
  <div align="center">
     <h1> Update Your FSA Biz Card</h1>
-    <button><Link to='/dbc/' className='link backToMain'>Return to Main Page</Link></button>
+    <div className='form-one-button'>
+      <button className='submit-button'><Link to='/dbc/' className='link backToMain'>Return to Main Page</Link></button>
+    </div>
+    
  
  </div>
  );

@@ -28,20 +28,20 @@ function Create() {
             </h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" name="name" className="input-name" placeholder={name} onChange={(e) => setName(e.target.value)}/>
+                    <label htmlFor="name"></label>
+                    <input type="text" name="name" className="input-name" placeholder="Name*" onChange={(e) => setName(e.target.value)}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="job">Job Title:</label>
-                    <input type="text" name="job" className="input-job" placeholder={job} onChange={(e) => setJob(e.target.value)}/>
+                    <label htmlFor="job"></label>
+                    <input type="text" name="job" className="input-job" placeholder="Job Title*" onChange={(e) => setJob(e.target.value)}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="company">Company:</label>
-                    <input type="text" name="company" className="input-company" placeholder={company} onChange={(e) => setCompany(e.target.value)}/>
+                    <label htmlFor="company"></label>
+                    <input type="text" name="company" className="input-company" placeholder="Company*" onChange={(e) => setCompany(e.target.value)}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email Address:</label>
-                    <input type="text" name="email" className="input-email" placeholder={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <label htmlFor="email"></label>
+                    <input type="text" name="email" className="input-email" placeholder="Email Address*" onChange={(e) => setEmail(e.target.value)}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="profilePhoto">Profile Photo: </label>
@@ -52,13 +52,13 @@ function Create() {
                     <input type="file" name="companyLogo" onChange={(e) => setCompanyLogo (e.target.files)} ></input>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <input type="text" name="password" className="input-password" placeholder={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <label htmlFor="password"></label>
+                    <input type="text" name="password" className="input-password" placeholder="Password*" onChange={(e) => setPassword(e.target.value)}/>
                 </div>
-                <div><button className="form-one-next">Submit</button></div>            
-            </form>            
-            <div>
-                <button><Link to='/dbc/' className="link backToMain">Back to Main Page</Link></button>
+                <div className="form-one-button"><button className="submit-button">Submit</button></div>            
+            </form>           
+            <div className="form-one-button">
+                <button className="submit-button"><Link to='/dbc/' className="link backToMain">Back to Main Page</Link></button>
             </div>
         </div>
     </div>
