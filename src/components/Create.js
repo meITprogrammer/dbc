@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import logo from "../images/logo_fsa.png"
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"
 import "../App.css";
 
 function Create() {

@@ -4,7 +4,7 @@ import"../App.css";
 
 function Update() {
  return (
- <div align="center">
+ <div className='main-container'>
     <h1> Update Your FSA Biz Card</h1>
     <div className='form-one-button'>
       <button className='submit-button'><Link to='/dbc/' className='link backToMain'>Return to Main Page</Link></button>

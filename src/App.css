@@ -9,9 +9,7 @@ body {
   background-color: rgb(36, 36, 120);
 }
 
-/* App.js style*/
-
-.app-container {
+/* .app-container {
   width: 517px;
   height: 900px;
   background-color: white;
@@ -20,8 +18,10 @@ body {
   width: 317px;
   padding: 20px 10px;
   border-radius: 5px;
-}
-.form-one-button {
+} */
+
+.form-one-button,
+h1 {
   text-align: center;
   justify-content: center;
   padding: 5px;
@@ -78,21 +78,11 @@ img.profile-img {
 .form-group label {
   font-size: 15px;
 }
-/* .form-group {
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.form-group label {
-  width: 120px;
-  padding: 2px 2px;
-}
-.form-group input {
-  width: calc(100% - 120px);
-} */
 
 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 250px;
   height: 200px;
 }
@@ -110,4 +100,32 @@ img {
 }
 hr {
   border: 0.5px solid #efe9e9;
+}
+
+.dbc-card {
+  text-align: center;
+}
+
+.card-container {
+  height: 450px;
+  width: 650px;
+  background-color: white;
+  box-shadow: 0px 4px 16px rgba(126, 133, 142, 0.16);
+  margin: 20px auto;
+  padding: 20px 10px;
+  border-radius: 5px;
+}
+
+.main-container {
+  height: 900px;
+  width: 317px;
+  background-color: white;
+  box-shadow: 0px 4px 16px rgba(126, 133, 142, 0.16);
+  margin: 20px auto;
+  padding: 20px 10px;
+  border-radius: 5px;
+}
+
+.main-footer {
+  display: flex;
 }
