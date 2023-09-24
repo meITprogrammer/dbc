@@ -6,7 +6,7 @@ import "../App.css";
 function Homepage() {
  return (
  <div className='main-container'>
-  <ul class="circles">
+  {/* <ul class="circles">
                     <li></li>
                     <li></li>
                     <li></li>
@@ -17,7 +17,7 @@ function Homepage() {
                     <li></li>
                     <li></li>
                     <li></li>
-            </ul>
+            </ul> */}
             <div>
               <h1 className='welcome'> Welcome to FSA BizCard</h1>
               <h4 className='slogan'>"Go Digital, Connect in Style!</h4>

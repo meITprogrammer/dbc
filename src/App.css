@@ -43,12 +43,14 @@ h1 {
 
 .header-container {
   display: flex;
+  padding: 0;
 }
 
 .main-heading {
   font-size: 20px;
   color: #242478;
   text-align: center;
+  font-family: Merienda;
 }
 
 img.profile-img {
@@ -79,12 +81,23 @@ img.profile-img {
   font-size: 15px;
 }
 
-img {
+.fsa-logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 250px;
   height: 200px;
+}
+
+.company-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 50px;
+}
+.banner {
+  width: 300px;
 }
 
 .link {
@@ -110,6 +123,8 @@ hr {
   height: 700px;
   width: 317px;
   background-color: white;
+  background-size: cover;
+  background-image: url("./images/bcard.jpg");
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
   margin: 20px auto;
   padding: 20px 10px;
@@ -117,6 +132,27 @@ hr {
   background-color: white;
 }
 
+.profile-container {
+  background-color: lightgrey;
+  background-size: cover;
+  height: 50px;
+  height: auto;
+  border: 5px solid rgb(4, 8, 57, 0.4);
+  margin: 20px;
+}
+
+.profile-photo {
+  display: block;
+  height: 200px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-details {
+  line-height: 0.5;
+  text-align: center;
+}
 .main-container {
   height: 917px;
   width: 317px;

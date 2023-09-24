@@ -25,7 +25,7 @@ function Create() {
     return(
     <div>
         <div className="main-container">
-            <img alt="fsa_logo" src={logo} />
+            <img className="fsa-logo" alt="fsa_logo" src={logo} />
             <h2 className="main-heading main-content">
                 Create a New Business Card
             </h2>
@@ -65,6 +65,12 @@ function Create() {
                 <div className="form-group">
                      <label htmlFor="companyLogo">Company Logo:</label>
                     <input type="file" name="companyLogo" onChange={(e) => setCompanyLogo (e.target.files)} ></input>
+                </div>
+                <div>
+                    <input type="checkbox" checked="checked" />
+                    <span class="checkmark"></span>
+                    <label class="container">No profile photo and company logo
+                    </label>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password"></label>

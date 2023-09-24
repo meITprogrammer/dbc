@@ -1,13 +1,19 @@
 import React from "react";
-import logo from "../images/logo_fsa.png";
 import "../App.css"
+import banner from "../images/futureskills.jpg"
+import noprofile from "../images/noprofile.jpg"
 
 
 export default function Header() {
     return(
-        <div className="header-contatiner">
-            <img className="logo" src={logo} alt="" 
-            width="300px" height="250px"/>
+        <div className="heading">
+            <div>
+                <img alt="fsa_logo" src={banner} className="company-logo" />
+            </div>
+                   <div className="profile-container">
+                <img alt="profile_photo" src={noprofile} className="profile-photo" />
+            </div>
         </div>
+        
     )
 }
