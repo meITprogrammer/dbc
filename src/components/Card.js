@@ -4,6 +4,10 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
 import { getAuth, deleteUser } from "firebase/auth";
 import QRCode from 'react-qr-code';
+import phoneicon from "../images/phone.png"
+import emailicon from "../images/email.png"
+import websiteicon from "../images/website.png"
+import linkedinicon from "../images/linkedin.png"
 
 function  Card () {
   const [name, setName] = useState();
@@ -94,30 +98,33 @@ function  Card () {
   }
  
     return (
-      <div className="main-container">
-        <div>
-            <h1>Digital Business Card</h1>
-        </div>
-      <div>
+      <div className="card-container">
+       <div>
         <div className="card-details">
+           <div>
+            <img className="profile-photo"/>
+           </div>
             <div>
-            <h4>{name}</h4>
-            <h4>{job}</h4>
-            <h4>{company}</h4>
-            <h4>{mobile}</h4>
-            <h4>{website}</h4>
-            <h4>{linkedin}</h4>
-            <h4>{email}</h4>
-            <QRCode className="qr-code" value={generateQRCode}></QRCode>
+              <h2 className="profile-name">{name}</h2>
+              <h4 className="profile-name">{job}</h4>
+              <h4 className="profile-name">{company}</h4>
+              <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={phoneicon} />  {mobile}</h4>
+              <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={websiteicon} />  {website}</h4>
+              <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={linkedinicon} />  {linkedin}</h4>
+              <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={emailicon} />  {email}</h4>
+            
             </div>
-                
+
+          <div className='form-one-button'>
+            <button  onClick={generateQRCode} className="submit-button">Generate QR</button>
+            </div>      
           <div className='form-one-button'>
             <button  className="submit-button"><Link to={`/dbc/edit/${email}`} className='link update'>Edit</Link></button>
             </div>
           <div className='form-one-button'>
             <button onClick={deleteCard} className="submit-button">Delete</button>
-            </div>
-        <div className="form-one-button">
+          </div>
+          <div className="form-one-button">
                 <button className="submit-button"><Link to='/dbc/' className="link backToMain">Back to Main Page</Link></button>
             </div>
             

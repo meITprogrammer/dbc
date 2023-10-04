@@ -124,12 +124,25 @@ hr {
   width: 317px;
   background-color: white;
   background-size: cover;
-  background-image: url("./images/bcard.jpg");
+  background-image: url("./images/bgbcard.png");
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
   margin: 20px auto;
   padding: 20px 10px;
   border-radius: 5px;
   background-color: white;
+}
+
+.profile-name {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.profile-details {
+  text-align: left;
+  margin-left: 10px;
+}
+.card-icon {
+  height: 15px;
 }
 
 .profile-container {
@@ -147,6 +160,7 @@ hr {
   width: 200px;
   margin-left: auto;
   margin-right: auto;
+  border: none;
 }
 
 .card-details {
@@ -194,7 +208,7 @@ li {
 }
 
 .qr-code {
-  height: 100px;
+  height: 50px;
 }
 
 .circles {
