@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyASUXfBFlloQAZY09UFMczJ4Xyza3nRiIg",
-  authDomain: "bizcard-7c631.firebaseapp.com",
-  projectId: "bizcard-7c631",
-  storageBucket: "bizcard-7c631.appspot.com",
-  messagingSenderId: "723052729513",
-  appId: "1:723052729513:web:28a59e0101aeb2d1fac5b8"
+  apiKey: "AIzaSyC1dhDf9sMZgqpVrLqfr3CgVjzZ4eteVO4",
+  authDomain: "fsabizcard.firebaseapp.com",
+  projectId: "fsabizcard",
+  storageBucket: "fsabizcard.appspot.com",
+  messagingSenderId: "942464405333",
+  appId: "1:942464405333:web:21e8b06c1229cee599e9dc"
 };
 
 const app = initializeApp(firebaseConfig);
