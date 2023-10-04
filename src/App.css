@@ -192,9 +192,10 @@ li {
   display: inline-block;
   margin: 0 5px;
 }
-/* .main-footer {
-  display: flex;
-} */
+
+.qr-code {
+  height: 100px;
+}
 
 .circles {
   position: absolute;

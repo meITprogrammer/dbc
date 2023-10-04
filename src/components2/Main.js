@@ -1,33 +1,62 @@
-import React from 'react'
+// import React, { useEffect, useState } from 'react';
+// import FBDataService from "../services/fbServices"; 
+// import { Link, useParams, useNavigate } from 'react-router-dom';
 
-function Main() {
-    const cards=[
-        {
-            name: "Kavi Sewdayal",
-            job: "Relationship Manager",
-            company: "Future Skills Academy",
-            email: "kavi@futureskills.co.nz",
-            mobile: "0272324483",
-            website: "www.futureskills.co.nz",
-            linkedin: "kavi.sewdayal",
-            id: 1
-        }
-    ]
-  return (
-    <div className='dbc-card'>
-        {cards.map(card=>     
-            <div className='card-details'>        
-                <h2>{card.name}</h2>
-                <h4>{card.job}</h4>
-                <h5>{card.company}</h5>
-                <h5>{card.email}</h5>
-                <h5>{card.mobile}</h5>
-                <h5>{card.website}</h5>
-                <h5>{card.linkedin}</h5>
-            </div>       
-        )};
-    </div>
-  )
-}
+// function Main() {
+//     const [name, setName] = useState();
+//     const [job, setJob] = useState();
+//     const [company, setCompany] = useState();
+//     const [email, setEmail] = useState();
+//     const [mobile, setMobile] = useState();
+//     const [website,setWebsite] = useState();
+//     const [linkedin, setLinkedin] = useState();
+//     const [profilePhoto, setProfilePhoto] = useState();
+//     const [companyLogo, setCompanyLogo] = useState();
+//     const [password, setPassword] = useState();
+//     const [key, setKey] = useState();
+//     const params = useParams();
+//     const navigate = useNavigate();
 
-export default Main
+//     useEffect(() => {
+//         setKey(params.id)
+//         //console.log("Message from Context"+value);
+//         console.log("Use effect exectuted show.js key"+params.id);
+//         getCards();
+//     }, []);
+
+//     const getCards = async () => {
+//         console.log ("Get board executed" + key);
+//         try {
+//             const docSnap = await FBDataService.getData(params.id);
+//             console.log("the record is :", docSnap.data());
+//             setName(docSnap.data().name);
+//             setJob(docSnap.data().job);
+//             setCompany(docSnap.data().company);   
+//             setEmail(docSnap.data().email);
+//             setMobile(docSnap.data().mobile);
+//             setWebsite(docSnap.data().website);
+//             setLinkedin(docSnap.data().linkedin);
+//             setProfilePhoto(docSnap.data().profilePhoto);
+//             setCompanyLogo(docSnap.data().companyLogo);      
+//             setPassword(docSnap.data().password);
+//         }   catch (err) {
+
+//         }
+//     }
+
+//   return (
+//     <div className='dbc-card'>
+//         <div className='card-details'>        
+//                 <h2>{name}</h2>
+//                 <h4>{job}</h4>
+//                 <h5>{company}</h5>
+//                 <h5>{email}</h5>
+//                 <h5>{mobile}</h5>
+//                 <h5>{website}</h5>
+//                 <h5>{linkedin}</h5>
+//             </div>       
+//     </div>
+//   )
+// }
+
+// export default Main
