@@ -207,8 +207,16 @@ li {
   margin: 0 5px;
 }
 
-.qr-code {
-  height: 50px;
+.qr-container {
+  height: 700px;
+  width: 317px;
+  background-color: white;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  margin: 20px auto;
+  padding: 20px 10px;
+  border-radius: 5px;
+  background-color: white;
+  text-align: center;
 }
 
 .circles {

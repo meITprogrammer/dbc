@@ -3,11 +3,11 @@ import { db } from "../fb-config";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
 import { getAuth, deleteUser } from "firebase/auth";
-import QRCode from 'react-qr-code';
 import phoneicon from "../images/phone.png"
 import emailicon from "../images/email.png"
 import websiteicon from "../images/website.png"
 import linkedinicon from "../images/linkedin.png"
+
 
 function  Card () {
   const [name, setName] = useState();
@@ -87,15 +87,8 @@ function  Card () {
  };
 
  const generateQRCode = () => {
-    QRCode.toDataURL(url, {
-    width: 800,
-    margin: 1   
-    },(err, url) => {
-      if(err) return console.error(err)
-      console.log(url)
-      setQrcode(url)
-    })
-  }
+  navigate(`/dbc/card/qrcode/${email}`)
+ }
  
     return (
       <div className="card-container">

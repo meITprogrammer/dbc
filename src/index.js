@@ -10,7 +10,7 @@ import Signup from './authentication/Signup';
 import Signin from './authentication/Signin';
 import Authentication from './authentication/Authentication';
 import AuthDetails from './authentication/AuthDetails';
-
+import GenerateQR from "./components/GenerateQR"
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -27,6 +27,7 @@ root.render(
           <Route path='/dbc/signup'element={<Signup />}/>
           <Route path='/dbc/signin'element={<Signin />}/>
           <Route path='/dbc/authdetails'element={<AuthDetails />}/>      
+          <Route path='/dbc/card/qrcode/:id'element={<GenerateQR />}/>      
         </Routes>
       </BrowserRouter>
     </div>
