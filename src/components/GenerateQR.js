@@ -20,7 +20,9 @@ function GenerateQR() {
     <div>
         <div className='qr-container'>
           <div>
-        <QRCode value={`https://meitprogrammer.github.io/dbc/card/${params.id}`} />
+        <QRCode value={`http://localhost:3000/dbc/card/${params.id}`} />
+        {/*use code below for github deploy*/}
+        {/* <QRCode value={` https://meitprogrammer.github.io/dbc/card/${params.id}`} /> */}
         </div>
         <div className='form-one-button'>
             <button  className="submit-button"><Link to={`/dbc/card/${params.id}`} className='link update'>Back</Link></button>

@@ -2,8 +2,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import React, { useState } from 'react';
 import FBDataService from "../services/fbServices";
 import logo from '../images/logo_fsa.png'
-import { auth } from '../fb-config';
+import { auth, db } from '../fb-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { addDoc, collection } from 'firebase/firestore';
 
 function Create(){
     const [name, setName] = useState('');
