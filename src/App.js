@@ -20,6 +20,7 @@ function App() {
         <button className='submit-button'><Link to='/dbc/authentication' className='link update' element={<Authentication />}>Login to View Card</Link></button>
       </div>
  </div>
+    
 </>
   );
 }

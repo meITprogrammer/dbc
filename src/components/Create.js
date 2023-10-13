@@ -2,7 +2,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import React, { useState } from 'react';
 import FBDataService from "../services/fbServices";
 import logo from '../images/logo_fsa.png'
-import { auth, db } from '../fb-config';
+import { auth, colRef, db } from '../fb-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
 
@@ -52,7 +52,8 @@ function Create(){
                
         };
         try{         
-          await FBDataService.addData(newData);         
+          await addDoc(colRef, {newData})
+          //FBDataService.addData(newData);         
           console.log("Data added " + name + email);
           navigate(`/dbc/card/${newData.email}`)
         }catch(err){         
