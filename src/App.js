@@ -10,7 +10,7 @@ function App() {
     <>
     <div className='main-container'>
             <div>
-              <h1 className='welcome'> Welcome to FSA BizCard</h1>
+              <h1 className='welcome'> Welcome to FSA BizCard!</h1>
               <h4 className='slogan'>"Go Digital, Connect in Style!</h4>
             </div>
     <div className='form-one-button'>
