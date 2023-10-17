@@ -1,10 +1,9 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import FBDataService from "../services/fbServices";
 import logo from '../images/logo_fsa.png'
-import { auth, colRef, db } from '../fb-config';
+import { auth, colRef } from '../fb-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc } from 'firebase/firestore';
 
 function Create(){
     const [name, setName] = useState('');
@@ -18,7 +17,6 @@ function Create(){
     const [profilePhoto, setProfilePhoto] = useState();
     const [password, setPassword] = useState();
     
-
     const navigate = useNavigate();
        
     const createCard=(e)=> {
@@ -52,8 +50,7 @@ function Create(){
                
         };
         try{         
-          await addDoc(colRef, {newData})
-          //FBDataService.addData(newData);         
+          await addDoc(colRef, newData);         
           console.log("Data added " + name + email);
           navigate(`/dbc/card/${newData.email}`)
         }catch(err){         

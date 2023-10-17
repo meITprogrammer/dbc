@@ -3,7 +3,6 @@ import { db } from "../fb-config";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
 import { getAuth, deleteUser } from "firebase/auth";
-import QRCode from 'react-qr-code';
 import phoneicon from "../images/phone.png"
 import emailicon from "../images/email.png"
 import websiteicon from "../images/website.png"
@@ -29,7 +28,7 @@ function  Card () {
   useEffect(() => {  
     setKey(params.id)
     //console.log("Message from Context"+value);
-    console.log("Use effect exectuted show.js key"+params.id);
+    console.log("Use effect executed show.js key"+params.id);
     getCard();
   }, []);
 
@@ -55,6 +54,7 @@ function  Card () {
             
         } catch (err) {
         }};
+
 
  const deleteCard = async () => {
     try {
