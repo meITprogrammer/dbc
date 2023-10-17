@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import logo from '../images/logo_fsa.png'
-import { collection, query, where, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, updateDoc } from "firebase/firestore";
 import { db } from '../fb-config';
 
 function Edit(){
