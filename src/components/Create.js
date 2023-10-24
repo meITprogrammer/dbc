@@ -4,6 +4,10 @@ import logo from '../images/logo_fsa.png'
 import { auth, colRef } from '../fb-config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { addDoc } from 'firebase/firestore';
+import { storage } from '../fb-config';
+import { v4 as uuidv4 } from 'uuid';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import "firebase/compat/storage";
 
 function Create(){
     const [name, setName] = useState('');
@@ -13,15 +17,15 @@ function Create(){
     const [mobile, setMobile] = useState('');
     const [website, setWebsite] = useState('');
     const [linkedin, setLinkedin] = useState('');
-    const [companyLogo, setCompanyLogo] = useState();
+    //const [companyLogo, setCompanyLogo] = useState();
     const [profilePhoto, setProfilePhoto] = useState();
-    const [password, setPassword] = useState();
+    const [password, setPassword] = useState('');
     
     const navigate = useNavigate();
        
     const createCard=(e)=> {
         e.preventDefault();
-        console.log('Name : '+name +' Email: ' +email +' password' +password);
+        console.log('Name : '+ name +' Email: ' +email +' password' +password);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
        // Signed up 
@@ -33,12 +37,13 @@ function Create(){
                 const errorMessage = error.message;
                 // ..
                 });
+        
         saveCard();
       }
 
     const saveCard = async() => {       
         console.log('Save Name : '+name + ' Email: ' +email);
-        const newData = {
+        const newData = profilePhoto ? {
           name,
           job,
           company,
@@ -46,9 +51,22 @@ function Create(){
           website,
           linkedin,
           email,
-          password
+          password,
+          profilePhoto
+          //companyLogo,
                
-        };
+        } :
+        {
+          name,
+          job,
+          company,
+          mobile,
+          website,
+          linkedin,
+          email,
+          password      
+        }
+        ;
         try{         
           await addDoc(colRef, newData);         
           console.log("Data added " + name + email);
@@ -57,9 +75,38 @@ function Create(){
           console.log(err.message)
         }
      };  
+
+    const handleUploadPhoto = (event) => {setProfilePhoto(event.target.files[0]);
+      if (!profilePhoto) return;
+      console.log(event.target.files[0]);
+      let uuid = uuidv4();
+      const storageRef = ref(storage);
+      const imageRef = ref(storageRef, `profilePhoto/${uuid}/${profilePhoto.name}`);
+      uploadBytes(imageRef, profilePhoto).then((snapshot) =>{
+        getDownloadURL(snapshot.ref).then((url)=> {
+          console.log(url);
+          setProfilePhoto([url]);
+        });
+        
+      } );
+    }
+    
+    // const handleUploadLogo = (e) => {setCompanyLogo(e.target.files[0]);
+    //   //console.log(e.target.files[0]);
+    //   let uuid = uuidv4();
+    //   const storageRef = ref(storage);
+    //   const imageRef = ref(storageRef, `companyLogo/${uuid}/${companyLogo.name}`);
+    //   uploadBytes(imageRef, companyLogo).then((snapshot) =>{
+    //     getDownloadURL(snapshot.ref).then((url)=> {
+    //       console.log(url);
+    //       setCompanyLogo(url);
+    //     });
+        
+    //   } );
+    // }
      
     return (
-        <div class="main-container">
+        <div className="main-container">
           <div>
             <div>
                 <img className="fsa-logo" alt="fsa_logo" src={logo} />
@@ -67,7 +114,7 @@ function Create(){
                     Create a New Business Card
                 </h2>
             </div>
-            <div class="panel-body">
+            <div className="panel-body">
               <form onSubmit={createCard}>
                 <div className="form-group">   
                     <input type="text" name="name" className="input-name" placeholder="Name*" value={name} 
@@ -104,30 +151,36 @@ function Create(){
                     onChange={(event) => {setLinkedin(event.target.value);
                     }}/>
                 </div>
-                <div className="form-group">   
+                <div className="form-group">
+                    <label htmlFor="email">  
                     <input type="text" name="email" className="input-name" placeholder="Email*" value={email} 
                     onChange={(event) => {setEmail(event.target.value);
                     }}/>
+                    </label> 
                 </div>
-                <div className="form-group">   
+                <div className="form-group">
+                    <label htmlFor="password">   
                     <input type="text" name="password" className="input-name" placeholder="Password*" value={password} 
                     onChange={(event) => {setPassword(event.target.value);
                     }}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="profilePhoto">Profile Photo: </label>
-                    <input type="file" name="profilePhoto" onChange={(e) => setProfilePhoto (e.target.files)}></input>
-                </div>
-                <div className="form-group">
-                     <label htmlFor="companyLogo">Company Logo:</label>
-                    <input type="file" name="companyLogo" onChange={(e) => setCompanyLogo (e.target.files)} ></input>
-                </div>
-                <div>
-                    <input type="checkbox" />
-                    <span class="checkmark"></span>
-                    <label class="container">No profile photo and company logo
                     </label>
                 </div>
+                <div className="form-group">
+                    <label htmlFor="profilePhoto">
+                    <label htmlFor="profilePhoto">Profile Photo: </label>
+                    <input type="file" onChange={(event) => {handleUploadPhoto(event)}} />
+                    </label>
+                </div>
+                {/* <div className="form-group">
+                     <label htmlFor="companyLogo">Company Logo:</label>
+                    <input type="file" onChange={(e) => handleUploadLogo(e)} ></input>
+                </div> 
+                <div>
+                    <input type="checkbox" />
+                    <span className="checkmark"></span>
+                    <label className="container">No profile photo and company logo
+                    </label>
+                </div>*/}
                 <div className="form-one-button"><button className="submit-button">Submit</button></div>
               </form>
               <div className="form-one-button">

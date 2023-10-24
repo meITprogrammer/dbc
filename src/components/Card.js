@@ -8,7 +8,6 @@ import emailicon from "../images/email.png"
 import websiteicon from "../images/website.png"
 import linkedinicon from "../images/linkedin.png"
 
-
 function  Card () {
   const [name, setName] = useState();
   const [job, setJob] = useState('');
@@ -18,6 +17,8 @@ function  Card () {
   const [website, setWebsite] = useState('');
   const [linkedin, setLinkedin] = useState('');
   const [password, setPassword] = useState('');
+  //const [companyLogo, setCompanyLogo] = useState();
+  const [profilePhoto, setProfilePhoto] = useState();
 
   const [qrcode, setQrcode] = useState('');
   const [url, setUrl] = useState('');
@@ -49,12 +50,13 @@ function  Card () {
                 setLinkedin(doc.data().linkedin);
                 setEmail(doc.data().email);
                 setPassword(doc.data().password);
+                setProfilePhoto(doc.data().profilePhoto);
+                //setCompanyLogo(doc.data().companyLogo);
 
-            });
+              });
             
         } catch (err) {
         }};
-
 
  const deleteCard = async () => {
     try {
@@ -92,38 +94,66 @@ function  Card () {
  }
  
     return (
-      <div className="card-container">
-       <div>
-        <div className="card-details">
+      <div>
+        {profilePhoto ? (
+           <div className="card-container">
            <div>
-            <img className="profile-photo"/>
-           </div>
-            <div>
-              <h2 className="profile-name">{name}</h2>
-              <h4 className="profile-name">{job}</h4>
-              <h4 className="profile-name">{company}</h4>
-              <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={phoneicon} />  {mobile}</h4>
-              <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={websiteicon} />  {website}</h4>
-              <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={linkedinicon} />  {linkedin}</h4>
-              <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={emailicon} />  {email}</h4>
-            
+            <div className="card-details">
+               <div>
+                <img src={profilePhoto} className="profile-photo"/>
+               </div>
+                <div>
+                  <h2 className="profile-name">{name}</h2>
+                  <h4 className="profile-name">{job}</h4>
+                  <h4 className="profile-name">{company}</h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={phoneicon} />  {mobile}</h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={websiteicon} />  {website}</h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={linkedinicon} />  {linkedin}</h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={emailicon} />  {email}</h4>
+                
+                </div>
+    
+              <div className='form-one-button'>
+                <button  onClick={generateQRCode} className="submit-button-card">Generate QR</button>
+                <button  className="submit-button-card"><Link to={`/dbc/edit/${email}`} className='link update'>Edit</Link></button>
+                </div>      
+              <div className='form-one-button'>
+                <button onClick={deleteCard} className="submit-button-card">Delete</button>
+                <button className="submit-button-card"><Link to='/dbc/' className="link backToMain">Back to Main</Link></button>
+              </div>
+               
             </div>
-
-          <div className='form-one-button'>
-            <button  onClick={generateQRCode} className="submit-button">Generate QR</button>
-            </div>      
-          <div className='form-one-button'>
-            <button  className="submit-button"><Link to={`/dbc/edit/${email}`} className='link update'>Edit</Link></button>
-            </div>
-          <div className='form-one-button'>
-            <button onClick={deleteCard} className="submit-button">Delete</button>
           </div>
-          <div className="form-one-button">
-                <button className="submit-button"><Link to='/dbc/' className="link backToMain">Back to Main Page</Link></button>
-            </div>
-            
         </div>
-      </div>
+        ): (
+          <div className="card-container2">
+          <div>
+           <div className="card-details">
+               <div>
+                 <h2 className="profile-name">{name}</h2>
+                 <h4 className="profile-name">{job}</h4>
+                 <h4 className="profile-name">{company}</h4>
+                 <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={phoneicon} />  {mobile}</h4>
+                 <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={websiteicon} />  {website}</h4>
+                 <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={linkedinicon} />  {linkedin}</h4>
+                 <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={emailicon} />  {email}</h4>
+               
+               </div>
+   
+             <div className='form-one-button'>
+               <button  onClick={generateQRCode} className="submit-button-card">Generate QR</button>
+               <button  className="submit-button-card"><Link to={`/dbc/edit/${email}`} className='link update'>Edit</Link></button>
+               </div>      
+             <div className='form-one-button'>
+               <button onClick={deleteCard} className="submit-button-card">Delete</button>
+               <button className="submit-button-card"><Link to='/dbc/' className="link backToMain">Back to Main</Link></button>
+             </div>
+              
+           </div>
+         </div>
+       </div>
+        )}
+     
     </div>
     );
   
