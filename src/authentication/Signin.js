@@ -10,13 +10,13 @@ function Signin() {
     const [password, setPassword] = useState('');
 
     const signIn = (e) => {
-        e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-        .then ((userCredential) => {
-            console.log(userCredential);
-        }).catch((error) => {
-            console.log("error");
-        })
+        // e.preventDefault();
+        // signInWithEmailAndPassword(auth, email, password)
+        // .then ((userCredential) => {
+        //     console.log(userCredential);
+        // }).catch((error) => {
+        //     console.log("error");
+        // })
 
     }
   return (
