@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import logo from '../images/logo_fsa.png'
 import { collection, query, where, getDocs, doc, updateDoc } from "firebase/firestore";
 import { db } from '../fb-config';
+import Authentication from '../authentication/Authentication';
 
 function Edit(){
   const [name, setName] = useState();
@@ -18,7 +19,8 @@ function Edit(){
   const params = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {  
+  useEffect(() => {
+      
     setKey(params.id)
     //console.log("Message from Context"+value);
     console.log("Use effect exectuted show.js key"+params.id);
@@ -84,7 +86,9 @@ function Edit(){
            
 
     return (
+      
         <div class="main-container">
+          
           <div>
             <div>
                 <img className="fsa-logo" alt="fsa_logo" src={logo} />
