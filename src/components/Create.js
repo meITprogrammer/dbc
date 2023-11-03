@@ -17,7 +17,6 @@ function Create(){
     const [mobile, setMobile] = useState('');
     const [website, setWebsite] = useState('');
     const [linkedin, setLinkedin] = useState('');
-    //const [companyLogo, setCompanyLogo] = useState();
     const [profilePhoto, setProfilePhoto] = useState();
     const [password, setPassword] = useState('');
     
@@ -25,6 +24,36 @@ function Create(){
        
     const createCard=(e)=> {
         e.preventDefault();
+        // Validation for empty fields
+        if (name === '' || job === '' || company === '' || mobile === '' || website === '' || linkedin === '' || email === '' || password === '') {
+        // Show an error message to the user
+        alert('Please fill in all required fields');
+        return;
+        }
+
+          // Validation for email format
+        const emailRegex = /^\S+@\S+\.\S+$/;
+          if (!emailRegex.test(email)) {
+          // Show an error message to the user
+          alert('Please enter a valid email address');
+        return;
+        }
+
+         // Validation for password length
+        if (password.length < 8) {
+        // Show an error message to the user
+        alert('Password must be at least 8 characters long');
+        return;
+        }
+
+         // Validation for mobile number format
+        const phoneRegex = /^[0-9]{10}$/; // Matches a 10-digit number
+        if (!phoneRegex.test(mobile)) {
+          // Show an error message to the user
+        alert('Please enter a valid 10-digit mobile number');
+        return;
+        }
+
         console.log('Name : '+ name +' Email: ' +email +' password' +password);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -39,7 +68,26 @@ function Create(){
                 });
         
         saveCard();
+        emailCard();
       }
+    
+      const emailCard = (e) => {
+        const templateId = 'template_60hwxu2';
+        const serviceID = "service_7i2jnm4";
+        sendFeedback(serviceID, templateId, { from_name: name, email: email})
+      };
+
+      const sendFeedback = (serviceID, templateId, variables) => {
+        window.emailjs.send(
+            serviceID, templateId,
+            variables
+        ).then(res => {
+            console.log('Email successfully sent!')
+        })
+            .catch(err => console.error('There has been an Error.', err))
+    }
+    
+    
 
     const saveCard = async() => {       
         console.log('Save Name : '+name + ' Email: ' +email);
@@ -91,19 +139,6 @@ function Create(){
       } );
     }
     
-    // const handleUploadLogo = (e) => {setCompanyLogo(e.target.files[0]);
-    //   //console.log(e.target.files[0]);
-    //   let uuid = uuidv4();
-    //   const storageRef = ref(storage);
-    //   const imageRef = ref(storageRef, `companyLogo/${uuid}/${companyLogo.name}`);
-    //   uploadBytes(imageRef, companyLogo).then((snapshot) =>{
-    //     getDownloadURL(snapshot.ref).then((url)=> {
-    //       console.log(url);
-    //       setCompanyLogo(url);
-    //     });
-        
-    //   } );
-    // }
      
     return (
         <div className="main-container">
@@ -141,13 +176,13 @@ function Create(){
                 </div>
                 <div className="form-group">
                     <label htmlFor="website"></label>
-                    <input type="text" name="website" className="input-website" placeholder="Website" value={website}
+                    <input type="text" name="website" className="input-website" placeholder="Website*" value={website}
                     onChange={(event) => {setWebsite(event.target.value);
                     }}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="linkedin"></label>
-                    <input type="text" name="linkedin" className="input-linkedin" placeholder="LinkedIn" value={linkedin}
+                    <input type="text" name="linkedin" className="input-linkedin" placeholder="LinkedIn*" value={linkedin}
                     onChange={(event) => {setLinkedin(event.target.value);
                     }}/>
                 </div>
@@ -171,16 +206,6 @@ function Create(){
                     <input type="file" onChange={(event) => {handleUploadPhoto(event)}} />
                     </label>
                 </div>
-                {/* <div className="form-group">
-                     <label htmlFor="companyLogo">Company Logo:</label>
-                    <input type="file" onChange={(e) => handleUploadLogo(e)} ></input>
-                </div> 
-                <div>
-                    <input type="checkbox" />
-                    <span className="checkmark"></span>
-                    <label className="container">No profile photo and company logo
-                    </label>
-                </div>*/}
                 <div className="form-one-button"><button className="submit-button">Submit</button></div>
               </form>
               <div className="form-one-button">
