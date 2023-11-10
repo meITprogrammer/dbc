@@ -26,8 +26,6 @@ root.render(
           <Route path='/dbc/card/:id'element={<Card />}/>
           <Route path='/dbc/card/qrcode/:id'element={<GenerateQR />}/>      
           <Route path='/dbc/authentication'element={<Authentication />}/>
-               
-          
           <Route path='/dbc/dashboard/:id' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />                
           <Route path='/dbc/edit/:id' element={<ProtectedRoute><Edit /></ProtectedRoute>}/>            
         </Routes>
