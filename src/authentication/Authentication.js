@@ -1,13 +1,13 @@
 import React from 'react'
-import AuthDetails from './AuthDetails'
 import Signin from './Signin'
 import { Link } from 'react-router-dom'
+import Dashboard from '../components/Dashboard'
 
 function Authentication() {
   return (
     <div  className='main-container'>
         <Signin>
-          <AuthDetails />
+          <Dashboard />
         </Signin>
         
 

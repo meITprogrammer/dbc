@@ -6,31 +6,32 @@ import Create from './components/Create';
 import Edit from './components/Edit';
 import Card from './components/Card';
 import {BrowserRouter,Routes, Route } from "react-router-dom";
-import Signup from './authentication/Signup';
 import Signin from './authentication/Signin';
 import Authentication from './authentication/Authentication';
-import AuthDetails from './authentication/AuthDetails';
 import GenerateQR from "./components/GenerateQR"
 import Dashboard from './components/Dashboard';
-
+import { UserAuthContextProvider } from "./context/UserAuthContext";
+import ProtectedRoute from './authentication/ProtectedRoute';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <div>
       <BrowserRouter>
+      <UserAuthContextProvider>
         <Routes>
         <Route exact path='/dbc' element={<App />}/>          
-          <Route path='/dbc/edit/:id' element={<Edit />}/>            
           <Route path='/dbc/create' element={<Create />}/>           
-          <Route path='/dbc/card/:id'element={<Card />}/>
-          <Route path='/dbc/authentication'element={<Authentication />}/>
-          <Route path='/dbc/signup'element={<Signup />}/>
           <Route path='/dbc/signin'element={<Signin />}/>
-          <Route path='/dbc/authdetails'element={<AuthDetails />}/>      
+          <Route path='/dbc/card/:id'element={<Card />}/>
           <Route path='/dbc/card/qrcode/:id'element={<GenerateQR />}/>      
-          <Route path='/dbc/dashboard'element={<Dashboard />}/>      
+          <Route path='/dbc/authentication'element={<Authentication />}/>
+               
+          
+          <Route path='/dbc/dashboard/:id' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />                
+          <Route path='/dbc/edit/:id' element={<ProtectedRoute><Edit /></ProtectedRoute>}/>            
         </Routes>
+        </UserAuthContextProvider>
       </BrowserRouter>
     </div>
   </React.StrictMode>
