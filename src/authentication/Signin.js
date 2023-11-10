@@ -8,9 +8,9 @@ import { Link, useNavigate } from 'react-router-dom';
 function Signin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState();
     const navigate = useNavigate();
 
-<<<<<<< HEAD
     const signIn = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
@@ -20,19 +20,6 @@ function Signin() {
         }).catch((error) => {
             console.log("error");
         })
-=======
-    const signIn = async(e) => {
-        e.preventDefault();
-        setError("");
-        try{
-            await signInWithEmailAndPassword(auth, email, password);
-            navigate("/Welcome");
-            } catch(error)  {
-            setError(error.message);     
-            
-            console.log("error");
-        }
->>>>>>> b8eb005da4a721bc2ab57ef7daaae8cd401d39a4
 
 
     }
@@ -65,14 +52,10 @@ function Signin() {
             ></input>
             </div>
             <div className='form-one-button'>
-<<<<<<< HEAD
                 <button className='submit-button'>Login</button>
             </div>
             <div className='form-one-button'>
                 <button className="submit-button"><Link to="/dbc" className="link backToMain">Back to Main</Link></button>
-=======
-               <button className='submit-button' type="Submit">Login</button>
->>>>>>> b8eb005da4a721bc2ab57ef7daaae8cd401d39a4
             </div>
         </form>
     </div>
