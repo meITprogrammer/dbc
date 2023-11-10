@@ -9,14 +9,18 @@ function Signin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const signIn = (e) => {
-        // e.preventDefault();
-        // signInWithEmailAndPassword(auth, email, password)
-        // .then ((userCredential) => {
-        //     console.log(userCredential);
-        // }).catch((error) => {
-        //     console.log("error");
-        // })
+    const signIn = async(e) => {
+        e.preventDefault();
+        setError("");
+        try{
+            await signInWithEmailAndPassword(auth, email, password);
+            navigate("/Welcome");
+            } catch(error)  {
+            setError(error.message);     
+            
+            console.log("error");
+        }
+
 
     }
   return (
@@ -30,6 +34,7 @@ function Signin() {
             </div>
     
             <div className='form-group'>
+            {error && <p>{error}</p>}
             <input 
                 className="input-name" 
                 type="email" 
@@ -47,7 +52,7 @@ function Signin() {
             ></input>
             </div>
             <div className='form-one-button'>
-                <Link to={`/dbc/card/${email}`}><button className='submit-button'>Login</button></Link>
+               <button className='submit-button' type="Submit">Login</button>
             </div>
         </form>
     </div>
