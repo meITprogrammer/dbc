@@ -3,28 +3,28 @@ import React, { useState } from 'react'
 import { auth } from "../fb-config";
 import '../App.css';
 import logo from '../images/logo_fsa.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Signin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState();
+    const navigate = useNavigate();
 
-    const signIn = async(e) => {
+    const signIn = (e) => {
         e.preventDefault();
-        setError("");
-        try{
-            await signInWithEmailAndPassword(auth, email, password);
-            navigate("/Welcome");
-            } catch(error)  {
-            setError(error.message);     
-            
+        signInWithEmailAndPassword(auth, email, password)
+        .then ((userCredential) => {
+            console.log(userCredential);
+            navigate(`/dbc/dashboard/${email}`)
+        }).catch((error) => {
             console.log("error");
-        }
+        })
 
 
     }
   return (
-    <div>
+    <div className='main-container'>
         <form onSubmit={signIn}>
             <div>
                 <img className="fsa-logo" alt="fsa_logo" src={logo} />
@@ -52,7 +52,10 @@ function Signin() {
             ></input>
             </div>
             <div className='form-one-button'>
-               <button className='submit-button' type="Submit">Login</button>
+                <button className='submit-button'>Login</button>
+            </div>
+            <div className='form-one-button'>
+                <button className="submit-button"><Link to="/dbc" className="link backToMain">Back to Main</Link></button>
             </div>
         </form>
     </div>

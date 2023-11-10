@@ -113,13 +113,10 @@ function  Card () {
                 
                 </div>
     
+                   
               <div className='form-one-button'>
-                <button  onClick={generateQRCode} className="submit-button-card">Generate QR</button>
-                <button  className="submit-button-card"><Link to={`/dbc/edit/${email}`} className='link update'>Edit</Link></button>
-                </div>      
-              <div className='form-one-button'>
-                <button onClick={deleteCard} className="submit-button-card">Delete</button>
-                <button className="submit-button-card"><Link to='/dbc/' className="link backToMain">Back to Main</Link></button>
+              <button  onClick={generateQRCode} className="submit-button-card">Generate QR</button>
+                <button className="submit-button-card"><Link to={`/dbc/dashboard/${email}`} className="link backToMain">Dashboard</Link></button>
               </div>
                
             </div>
@@ -142,11 +139,7 @@ function  Card () {
    
              <div className='form-one-button'>
                <button  onClick={generateQRCode} className="submit-button-card">Generate QR</button>
-               <button  className="submit-button-card"><Link to={`/dbc/edit/${email}`} className='link update'>Edit</Link></button>
-               </div>      
-             <div className='form-one-button'>
-               <button onClick={deleteCard} className="submit-button-card">Delete</button>
-               <button className="submit-button-card"><Link to='/dbc/' className="link backToMain">Back to Main</Link></button>
+               <button className="submit-button-card"><Link to={`/dbc/dashboard/${email}`} className="link backToMain">Dashboard</Link></button>
              </div>
               
            </div>

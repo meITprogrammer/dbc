@@ -69,6 +69,7 @@ function Create(){
         
         saveCard();
         emailCard();
+        
       }
     
       const emailCard = (e) => {
@@ -118,26 +119,30 @@ function Create(){
         try{         
           await addDoc(colRef, newData);         
           console.log("Data added " + name + email);
-          navigate(`/dbc/card/${newData.email}`)
+          alert ('Your BizCard link has been emailed to you!')
+          navigate(`/dbc/dashboard/${newData.email}`)
         }catch(err){         
           console.log(err.message)
         }
      };  
 
-    const handleUploadPhoto = (event) => {setProfilePhoto(event.target.files[0]);
+    const handleUploadPhoto = async(event) => {
+      const profilePhoto = event.target.files[0];
       if (!profilePhoto) return;
-      console.log(event.target.files[0]);
+      console.log(profilePhoto);
       let uuid = uuidv4();
       const storageRef = ref(storage);
       const imageRef = ref(storageRef, `profilePhoto/${uuid}/${profilePhoto.name}`);
-      uploadBytes(imageRef, profilePhoto).then((snapshot) =>{
-        getDownloadURL(snapshot.ref).then((url)=> {
-          console.log(url);
-          setProfilePhoto([url]);
-        });
-        
-      } );
-    }
+      try {
+        const snapshot = await uploadBytes(imageRef, profilePhoto);
+        const url = await getDownloadURL(snapshot.ref);
+        console.log(url);
+        setProfilePhoto(url);
+      } catch (error) {
+        console.error("Error uploading photo:", error);
+      }
+      } 
+    
     
      
     return (
