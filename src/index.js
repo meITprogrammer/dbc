@@ -20,16 +20,14 @@ root.render(
       <BrowserRouter>
       <UserAuthContextProvider>
         <Routes>
-        <Route exact path='/dbc' element={<App />}/>          
-          <Route path='/dbc/create' element={<Create />}/>           
-          <Route path='/dbc/signin'element={<Signin />}/>
-          <Route path='/dbc/card/:id'element={<Card />}/>
-          <Route path='/dbc/card/qrcode/:id'element={<GenerateQR />}/>      
-          <Route path='/dbc/authentication'element={<Authentication />}/>
-               
-          
-          <Route path='/dbc/dashboard/:id' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />                
-          <Route path='/dbc/edit/:id' element={<ProtectedRoute><Edit /></ProtectedRoute>}/>            
+        <Route exact path='/' element={<App />}/>          
+          <Route path='/create' element={<Create />}/>           
+          <Route path='/signin'element={<Signin />}/>
+          <Route path='/card/:id'element={<Card />}/>
+          <Route path='/card/qrcode/:id'element={<GenerateQR />}/>      
+          <Route path='/authentication'element={<Authentication />}/>
+          <Route path='/dashboard/:id' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />                
+          <Route path='/edit/:id' element={<ProtectedRoute><Edit /></ProtectedRoute>}/>            
         </Routes>
         </UserAuthContextProvider>
       </BrowserRouter>

@@ -14,10 +14,10 @@ function App() {
               <h4 className='slogan'>"Go Digital, Connect in Style!</h4>
             </div>
     <div className='form-one-button'>
-        <button className='submit-button'><Link to='/dbc/Create' className='link create' element={<Create />}>Create New Card</Link></button>
+        <button className='submit-button'><Link to='/Create' className='link create' element={<Create />}>Create New Card</Link></button>
       </div>
        <div className='form-one-button'>
-        <button className='submit-button'><Link to='/dbc/authentication' className='link update' element={<Authentication />}>Login to View Card</Link></button>
+        <button className='submit-button'><Link to='/authentication' className='link update' element={<Authentication />}>Login to View Card</Link></button>
       </div>
  </div>
     

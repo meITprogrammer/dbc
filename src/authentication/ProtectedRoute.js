@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
 
   console.log("Check user in Private: ", currentUser);
   if (!currentUser) {
-    return <Navigate to="/dbc/" />;
+    return <Navigate to="/" />;
   }
   return children;
 };

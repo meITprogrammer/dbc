@@ -120,7 +120,7 @@ function Create(){
           await addDoc(colRef, newData);         
           console.log("Data added " + name + email);
           alert ('Your BizCard link has been emailed to you!')
-          navigate(`/dbc/dashboard/${newData.email}`)
+          navigate(`/dashboard/${newData.email}`)
         }catch(err){         
           console.log(err.message)
         }
@@ -200,7 +200,7 @@ function Create(){
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">   
-                    <input type="text" name="password" className="input-name" placeholder="Password*" value={password} 
+                    <input type="password" name="password" className="input-name" placeholder="Password*" value={password} 
                     onChange={(event) => {setPassword(event.target.value);
                     }}/>
                     </label>
@@ -214,7 +214,7 @@ function Create(){
                 <div className="form-one-button"><button className="submit-button">Submit</button></div>
               </form>
               <div className="form-one-button">
-                <button className="submit-button"><Link to='/dbc/' className="link backToMain">Back to Main Page</Link></button>
+                <button className="submit-button"><Link to='/' className="link backToMain">Back to Main Page</Link></button>
             </div>
             </div>
           </div>
