@@ -49,7 +49,7 @@ function Dashboard() {
                 })
                 console.log("Document(s) deleted successfully");
                 deleteUserAccount();
-                navigate(`/dbc/`);
+                navigate(`/`);
             }catch(error) {
                 console.error("Error deleting document(s):", error);
             }
@@ -74,7 +74,7 @@ function Dashboard() {
  const handleLogout = async () => {
   try {
     await signOut(auth);
-    navigate("/dbc");
+    navigate("/");
     console.log("signed out successful")
   } catch (error) {
     console.log(error.message);
@@ -90,13 +90,13 @@ function Dashboard() {
         </div>
         <div>
         <div className='form-one-button'>
-               <Link to={`/dbc/card/${email}`}><button  className="dashboard-button view">View My BizCard</button></Link>
-               <Link to={`/dbc/edit/${email}`}><button  className="dashboard-button contact">Edit My BizCard</button></Link>
+               <Link to={`/card/${email}`}><button  className="dashboard-button view">View My BizCard</button></Link>
+               <Link to={`/edit/${email}`}><button  className="dashboard-button contact">Edit My BizCard</button></Link>
                </div>      
         
              <div className='form-one-button'>
                <button onClick={deleteCard} className="dashboard-button scanqr">Delete</button>
-               <button onClick={handleLogout} className="dashboard-button"><Link to='/dbc/' className="link backToMain">Logout</Link></button>
+               <button onClick={handleLogout} className="dashboard-button"><Link to='/' className="link backToMain">Logout</Link></button>
              </div>
         </div>
     </div>

@@ -78,7 +78,7 @@ function Edit(){
                     await updateDoc(documentRef, newData);
                 });
                 console.log("Document(s) updated successfully");
-                navigate(`/dbc/card/${newData.email}`);
+                navigate(`/card/${newData.email}`);
             }catch(error) {
                 console.error("Error deleting document(s):", error);
             }
@@ -137,7 +137,7 @@ function Edit(){
                 <div className="form-one-button"><button className="submit-button">Save</button></div>
               </form>
               <div className='form-one-button'>
-                <Link to={`/dbc/card/${email}`}><button className='submit-button'>Cancel</button></Link>
+                <Link to={`/card/${email}`}><button className='submit-button'>Cancel</button></Link>
                 </div>
             </div>
           </div>

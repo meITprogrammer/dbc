@@ -68,7 +68,7 @@ function  Card () {
                 })
                 console.log("Document(s) deleted successfully");
                 deleteUserAccount();
-                navigate(`/dbc/`);
+                navigate(`/`);
             }catch(error) {
                 console.error("Error deleting document(s):", error);
             }
@@ -90,7 +90,7 @@ function  Card () {
  };
 
  const generateQRCode = () => {
-    navigate(`/dbc/card/qrcode/${email}`);
+    navigate(`/card/qrcode/${email}`);
  }
  
     return (
@@ -116,7 +116,7 @@ function  Card () {
                    
               <div className='form-one-button'>
               <button  onClick={generateQRCode} className="submit-button-card">Generate QR</button>
-                <button className="submit-button-card"><Link to={`/dbc/dashboard/${email}`} className="link backToMain">Dashboard</Link></button>
+                <button className="submit-button-card"><Link to={`/dashboard/${email}`} className="link backToMain">Dashboard</Link></button>
               </div>
                
             </div>
@@ -139,7 +139,7 @@ function  Card () {
    
              <div className='form-one-button'>
                <button  onClick={generateQRCode} className="submit-button-card">Generate QR</button>
-               <button className="submit-button-card"><Link to={`/dbc/dashboard/${email}`} className="link backToMain">Dashboard</Link></button>
+               <button className="submit-button-card"><Link to={`/dashboard/${email}`} className="link backToMain">Dashboard</Link></button>
              </div>
               
            </div>

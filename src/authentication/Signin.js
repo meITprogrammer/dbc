@@ -16,9 +16,10 @@ function Signin() {
         signInWithEmailAndPassword(auth, email, password)
         .then ((userCredential) => {
             console.log(userCredential);
-            navigate(`/dbc/dashboard/${email}`)
+            navigate(`/dashboard/${email}`)
         }).catch((error) => {
-            console.log("error");
+            setError("Email/Password is incorrect")
+            console.log("not registered user");
         })
 
 
@@ -55,7 +56,7 @@ function Signin() {
                 <button className='submit-button'>Login</button>
             </div>
             <div className='form-one-button'>
-                <button className="submit-button"><Link to="/dbc" className="link backToMain">Back to Main</Link></button>
+                <button className="submit-button"><Link to="/" className="link backToMain">Back to Main</Link></button>
             </div>
         </form>
     </div>
