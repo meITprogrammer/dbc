@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
 
@@ -7,7 +7,8 @@ const ProtectedRoute = ({ children }) => {
 
   console.log("Check user in Private: ", currentUser);
   if (!currentUser) {
-    return <Navigate to="/" />;
+    alert ("Sign in to access this page")
+    return <Navigate to="/signin" />;
   }
   return children;
 };

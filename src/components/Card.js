@@ -19,6 +19,7 @@ function  Card () {
   const [password, setPassword] = useState('');
   //const [companyLogo, setCompanyLogo] = useState();
   const [profilePhoto, setProfilePhoto] = useState();
+  const [error, setError] = useState();
 
   const [qrcode, setQrcode] = useState('');
   const [url, setUrl] = useState('');
@@ -39,55 +40,34 @@ function  Card () {
             let userEmail = params.id;
             const q = query(collection(db, "cards"), where("email", "==", userEmail));
             const querySnapshot = await getDocs(q);
-                querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                //console.log(doc.id, " => ", doc.data());
-                setName(doc.data().name);
-                setJob(doc.data().job);
-                setCompany(doc.data().company);
-                setMobile(doc.data().mobile);
-                setWebsite(doc.data().website);
-                setLinkedin(doc.data().linkedin);
-                setEmail(doc.data().email);
-                setPassword(doc.data().password);
-                setProfilePhoto(doc.data().profilePhoto);
-                //setCompanyLogo(doc.data().companyLogo);
-
+            if (querySnapshot.empty) {
+              // Handle the case when the email does not exist
+              console.log("Record does not exist");
+              alert ("Record does not exist")
+              navigate("/");
+              // You might set some default values for the user data here
+            } else {
+              querySnapshot.forEach((doc) => {
+                // Access the data and set state or perform other operations
+                const userData = doc.data();
+                setName(userData.name);
+                setJob(userData.job);
+                setCompany(userData.company);
+                setMobile(userData.mobile);
+                setWebsite(userData.website);
+                setLinkedin(userData.linkedin);
+                setEmail(userData.email);
+                setPassword(userData.password);
+                setProfilePhoto(userData.profilePhoto);
+                // setCompanyLogo(userData.companyLogo);
               });
-            
-        } catch (err) {
-        }};
-
- const deleteCard = async () => {
-    try {
-    let deleteEmail = params.id;
-    const q = query(collection(db, "cards"), where("email", "==", deleteEmail));
-            const querySnapshot = await getDocs(q);
-                querySnapshot.forEach(async(doc) => {
-                    await deleteDoc(doc.ref);
-                })
-                console.log("Document(s) deleted successfully");
-                deleteUserAccount();
-                navigate(`/`);
-            }catch(error) {
-                console.error("Error deleting document(s):", error);
             }
-        };
+          } catch (error) {
+            // Handle any potential errors that might occur during the data fetching process
+            console.error("Error occurred while fetching user data:", error);
+          }
+         };
 
- const deleteUserAccount = async () => {
-    try {
-        const auth = getAuth();
-        const user = auth.currentUser;
-        if (user) {
-            await deleteUser(user);
-            console.log("User account deleted successfully!");
-        } else {
-            console.log("No user is currently signed in.");
-        }
-    } catch(error){
-        console.error("Error deleting user account:", error);
-    }
- };
 
  const generateQRCode = () => {
     navigate(`/card/qrcode/${email}`);
