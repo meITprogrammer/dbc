@@ -18,18 +18,17 @@ root.render(
   <React.StrictMode>
     <div>
       <BrowserRouter>
-      <UserAuthContextProvider>
         <Routes>
         <Route exact path='/' element={<App />}/>          
           <Route path='/create' element={<Create />}/>           
           <Route path='/signin'element={<Signin />}/>
           <Route path='/card/:id'element={<Card />}/>
-          <Route path='/card/qrcode/:id'element={<GenerateQR />}/>      
-          <Route path='/authentication'element={<Authentication />}/>
-          <Route path='/dashboard/:id' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />                
-          <Route path='/edit/:id' element={<ProtectedRoute><Edit /></ProtectedRoute>}/>            
+          <Route path='/card/qrcode/:id'element={<GenerateQR />}/>
+          <Route path='/authentication'element={<UserAuthContextProvider><Authentication /></UserAuthContextProvider>}/>
+          <Route path='/dashboard/:id' element={<UserAuthContextProvider><ProtectedRoute><Dashboard /></ProtectedRoute></UserAuthContextProvider>} />                
+          <Route path='/edit/:id' element={<UserAuthContextProvider><ProtectedRoute><Edit /></ProtectedRoute></UserAuthContextProvider>}/>
+          
         </Routes>
-        </UserAuthContextProvider>
       </BrowserRouter>
     </div>
   </React.StrictMode>

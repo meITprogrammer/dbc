@@ -20,7 +20,7 @@ function GenerateQR() {
     <div>
         <div className='qr-container'>
           <div>
-        <QRCode value={`http://localhost:3000/card/${params.id}`} />
+        <QRCode value={`http://fsabizcard.web.app/card/${params.id}`} />
         {/*use code below for github deploy*/}
         {/* <QRCode value={` https://meitprogrammer.github.io/dbc/card/${params.id}`} /> */}
         </div>

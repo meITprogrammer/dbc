@@ -120,7 +120,7 @@ function Create(){
           await addDoc(colRef, newData);         
           console.log("Data added " + name + email);
           alert ('Your BizCard link has been emailed to you!')
-          navigate(`/dashboard/${newData.email}`)
+          navigate(`/card/${newData.email}`)
         }catch(err){         
           console.log(err.message)
         }
