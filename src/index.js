@@ -12,6 +12,8 @@ import GenerateQR from "./components/GenerateQR"
 import Dashboard from './components/Dashboard';
 import { UserAuthContextProvider } from "./context/UserAuthContext";
 import ProtectedRoute from './authentication/ProtectedRoute';
+import ResetEmail from './authentication/ResetEmail';
+import Show from './components/Show';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,10 +24,12 @@ root.render(
         <Route exact path='/' element={<App />}/>          
           <Route path='/create' element={<Create />}/>           
           <Route path='/signin'element={<Signin />}/>
+          <Route path='/resetemail'element={<ResetEmail />}/>
           <Route path='/card/:id'element={<Card />}/>
           <Route path='/card/qrcode/:id'element={<GenerateQR />}/>
           <Route path='/authentication'element={<UserAuthContextProvider><Authentication /></UserAuthContextProvider>}/>
-          <Route path='/dashboard/:id' element={<UserAuthContextProvider><ProtectedRoute><Dashboard /></ProtectedRoute></UserAuthContextProvider>} />                
+          <Route path='/dashboard/:id' element={<UserAuthContextProvider><ProtectedRoute><Dashboard /></ProtectedRoute></UserAuthContextProvider>} />
+          <Route path='/show' element={<UserAuthContextProvider><ProtectedRoute><Show /></ProtectedRoute></UserAuthContextProvider>} />                                
           <Route path='/edit/:id' element={<UserAuthContextProvider><ProtectedRoute><Edit /></ProtectedRoute></UserAuthContextProvider>}/>
           
         </Routes>

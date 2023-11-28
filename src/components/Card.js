@@ -3,10 +3,10 @@ import { db } from "../fb-config";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
 import { getAuth, deleteUser } from "firebase/auth";
-import phoneicon from "../images/phone.png"
-import emailicon from "../images/email.png"
-import websiteicon from "../images/website.png"
-import linkedinicon from "../images/linkedin.png"
+import phoneicon from "../images/phone_icon.png"
+import emailicon from "../images/web_icon.png"
+import websiteicon from "../images/linkedin_icon.png"
+import linkedinicon from "../images/Mail.png"
 
 function  Card () {
   const [name, setName] = useState();
@@ -73,6 +73,9 @@ function  Card () {
     navigate(`/card/qrcode/${email}`);
  }
  
+ const previousPage = () => {
+  navigate(-1)
+};
     return (
       <div>
         {profilePhoto ? (
@@ -85,7 +88,7 @@ function  Card () {
                 <div>
                   <h2 className="profile-name">{name}</h2>
                   <h4 className="profile-name">{job}</h4>
-                  <h4 className="profile-name">{company}</h4>
+                  <h3 className="profile-name">{company}</h3>
                   <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={phoneicon} />  {mobile}</h4>
                   <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={websiteicon} />  {website}</h4>
                   <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={linkedinicon} />  {linkedin}</h4>
@@ -121,7 +124,7 @@ function  Card () {
                <button  onClick={generateQRCode} className="submit-button-card">Generate QR</button>
                <button className="submit-button-card"><Link to={`/dashboard/${email}`} className="link backToMain">Dashboard</Link></button>
              </div>
-              
+            
            </div>
          </div>
        </div>
