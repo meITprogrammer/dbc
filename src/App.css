@@ -144,7 +144,7 @@ hr {
 }
 
 .card-container {
-  height: 600px;
+  height: 700px;
   width: 317px;
   background-color: white;
   background-size: cover;
@@ -325,4 +325,13 @@ li {
 
 .confirmation-dialog button:hover {
   background-color: #0056b3;
+}
+
+.forgot {
+  font-size: small;
+  font-style: italic;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  padding-left: 35px;
 }

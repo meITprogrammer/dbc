@@ -10,6 +10,7 @@ import "firebase/compat/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyC1dhDf9sMZgqpVrLqfr3CgVjzZ4eteVO4",
   authDomain: "fsabizcard.firebaseapp.com",
+  databaseURL: "https://fsabizcard-default-rtdb.firebaseio.com",
   projectId: "fsabizcard",
   storageBucket: "fsabizcard.appspot.com",
   messagingSenderId: "942464405333",

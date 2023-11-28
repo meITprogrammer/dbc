@@ -5,6 +5,7 @@ import { auth, db } from "../fb-config";
 import { useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
 import { getAuth, deleteUser, signOut } from "firebase/auth";
+import Show from './Show';
 
 
 
@@ -15,6 +16,7 @@ function Dashboard() {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const params = useParams();
   const navigate = useNavigate();
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {  
     setKey(params.id)
@@ -34,6 +36,7 @@ function Dashboard() {
                 //console.log(doc.id, " => ", doc.data());
                 setName(doc.data().name);
                 setEmail(doc.data().email);
+                setIsAdmin(doc.data().role==='admin');
                 
               });
             
@@ -114,7 +117,14 @@ function Dashboard() {
                     </div>
                   )}
                <button onClick={handleLogout} className="dashboard-button"><Link to='/' className="link backToMain">Logout</Link></button>
+               
              </div>
+             <div>
+              {isAdmin && 
+                 <button className="dashboard-button"><Link to='/show' className="link backToMain">Client List</Link></button>
+              }
+              
+               </div>
         </div>
     </div>
   )

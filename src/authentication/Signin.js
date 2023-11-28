@@ -4,6 +4,7 @@ import { auth } from "../fb-config";
 import '../App.css';
 import logo from '../images/logo_fsa.png';
 import { Link, useNavigate } from 'react-router-dom';
+import ResetEmail from './ResetEmail';
 
 function Signin() {
     const [email, setEmail] = useState('');
@@ -51,6 +52,10 @@ function Signin() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             ></input>
+            <p></p>
+            <div>
+                <Link to="/resetemail" className='forgot'>Forgot your password? Click here</Link>
+            </div>
             </div>
             <div className='form-one-button'>
                 <button className='submit-button'>Login</button>
@@ -59,6 +64,8 @@ function Signin() {
                 <button className="submit-button"><Link to="/" className="link backToMain">Back to Main</Link></button>
             </div>
         </form>
+        
+        
     </div>
         
   )
