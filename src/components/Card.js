@@ -4,9 +4,9 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
 import { getAuth, deleteUser } from "firebase/auth";
 import phoneicon from "../images/phone_icon.png"
-import emailicon from "../images/web_icon.png"
-import websiteicon from "../images/linkedin_icon.png"
-import linkedinicon from "../images/Mail.png"
+import emailicon from "../images/Mail.png"
+import websiteicon from "../images/web_icon.png"
+import linkedinicon from "../images/linkedin_icon.png"
 
 function  Card () {
   const [name, setName] = useState();
@@ -89,10 +89,10 @@ function  Card () {
                   <h2 className="profile-name">{name}</h2>
                   <h4 className="profile-name">{job}</h4>
                   <h3 className="profile-name">{company}</h3>
-                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={phoneicon} />  {mobile}</h4>
-                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={websiteicon} />  {website}</h4>
-                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={linkedinicon} />  {linkedin}</h4>
-                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={emailicon} />  {email}</h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={phoneicon} /><a href={`tel:${mobile}`} className="text-decoration-off">  {mobile}</a></h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={websiteicon} /> <a href={website} target="_blank" rel="noopener noreferrer" className="text-decoration-off"> {website}</a></h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={linkedinicon} /><a href={`https://www.linkedin.com/in/${linkedin}/`} className="text-decoration-off">  {linkedin}</a></h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={emailicon} /><a href={`mailto:${email}`} className="text-decoration-off">{email}</a> </h4>
                 
                 </div>
     
@@ -113,11 +113,11 @@ function  Card () {
                  <h2 className="profile-name">{name}</h2>
                  <h4 className="profile-name">{job}</h4>
                  <h4 className="profile-name">{company}</h4>
-                 <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={phoneicon} />  {mobile}</h4>
-                 <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={websiteicon} />  {website}</h4>
-                 <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={linkedinicon} />  {linkedin}</h4>
-                 <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={emailicon} />  {email}</h4>
-               
+                 <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={phoneicon} /><a href={`tel:${mobile}`} className="text-decoration-off">  {mobile}</a></h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={websiteicon} /> <a href={website} target="_blank" rel="noopener noreferrer" className="text-decoration-off"> {website}</a></h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={linkedinicon} /><a href={`https://www.linkedin.com/in/${linkedin}/`} className="text-decoration-off">  {linkedin}</a></h4>
+                  <h4 className="profile-details"><img className="card-icon" alt="phone-icon" src={emailicon} /><a href={`mailto:${email}`} className="text-decoration-off">{email}</a> </h4>
+                
                </div>
    
              <div className='form-one-button'>
