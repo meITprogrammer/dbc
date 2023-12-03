@@ -47,7 +47,7 @@ function Create(){
         }
 
          // Validation for mobile number format
-        const phoneRegex = /^[0-9]{10}$/; // Matches a 10-digit number
+        const phoneRegex = /^[0-9]{10,}$/; // Matches at least 10-digit number
         if (!phoneRegex.test(mobile)) {
           // Show an error message to the user
         alert('Please enter a valid 10-digit mobile number eg 02X XXX XXXX');
