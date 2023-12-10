@@ -20,7 +20,7 @@ function ResetEmail() {
 
 
   return (
-    <div className='main-container'>
+    <div className='dashboard-container'>
     
         <div>
             <img className="fsa-logo" alt="fsa_logo" src={logo} />

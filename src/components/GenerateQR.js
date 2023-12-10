@@ -19,12 +19,17 @@ function GenerateQR() {
   return (
     <div>
         <div className='qr-container'>
+          
           <div>
         <QRCode value={`http://fsabizcard.web.app/card/${params.id}`} />
         {/*use code below for github deploy*/}
         {/* <QRCode value={` https://meitprogrammer.github.io/dbc/card/${params.id}`} /> */}
         </div>
         <div className='form-one-button'>
+        <h1>
+            Scan QR Code            
+        </h1>
+          
             <button  className="submit-button"><Link to={`/card/${params.id}`} className='link update'>Back</Link></button>
             </div>
         </div>

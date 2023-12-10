@@ -14,6 +14,7 @@ import { UserAuthContextProvider } from "./context/UserAuthContext";
 import ProtectedRoute from './authentication/ProtectedRoute';
 import ResetEmail from './authentication/ResetEmail';
 import Show from './components/Show';
+import Search from './components/Search';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +26,7 @@ root.render(
           <Route path='/create' element={<Create />}/>           
           <Route path='/signin'element={<Signin />}/>
           <Route path='/resetemail'element={<ResetEmail />}/>
+          <Route path='/clientlist/search'element={<Search />}/>
           <Route path='/card/:id'element={<Card />}/>
           <Route path='/card/qrcode/:id'element={<GenerateQR />}/>
           <Route path='/authentication'element={<UserAuthContextProvider><Authentication /></UserAuthContextProvider>}/>
