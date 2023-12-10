@@ -148,7 +148,7 @@ hr {
   width: 317px;
   background-color: white;
   background-size: cover;
-  background-image: url("./images/bgprofe.png");
+  background-image: url("./images/bg7.png");
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
   margin: 20px auto;
   padding: 20px 10px;
@@ -207,12 +207,13 @@ hr {
 }
 
 .card-details {
-  padding-top: 20px;
+  padding-top: 10px;
   line-height: 1;
   text-align: center;
 }
 .main-container {
-  height: 917px;
+  border: 2px solid gray;
+  height: 830px;
   width: 317px;
   background-color: white;
   margin: 20px auto;
@@ -221,8 +222,21 @@ hr {
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
 }
 
+.main-container2 {
+  border: 2px solid gray;
+  height: 830px;
+  width: 317px;
+  background-image: url("/src/images/mainpage.png");
+  background-color: white;
+  margin: 20px auto;
+  padding: 20px 10px;
+  border-radius: 5px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
+
 .welcome {
-  padding-top: 50%;
+  padding-top: 100%;
+  color: white;
   font-style: italic;
   font-family: Merienda;
 }
@@ -232,6 +246,7 @@ hr {
   font-family: Merienda;
 }
 .slogan {
+  padding-top: 70%;
   text-align: center;
   font-style: italic;
   font-family: Merienda;
@@ -257,21 +272,21 @@ li {
 }
 
 .qr-container {
-  height: 450px;
+  height: 575px;
   width: 317px;
+  border: 2px solid gray;
   background-color: white;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
   margin: 20px auto;
   padding: 80px 10px;
   border-radius: 5px;
-  background-color: white;
   text-align: center;
 }
 
 .dashboard-container {
-  height: 600px;
+  border: 2px solid gray;
+  height: 650px;
   width: 317px;
-  background-color: white;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
   margin: 20px auto;
   padding: 80px 10px;
@@ -336,10 +351,40 @@ li {
   align-items: center;
   text-decoration: none;
   cursor: pointer;
-  padding-left: 35px;
 }
 
 .text-decoration-off {
   text-decoration: none;
   color: white;
+}
+
+table {
+  font-family: Raleway;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: rgb(38, 194, 38, 0.6);
+}
+
+th {
+  padding: 1px;
+  text-align: center;
+  background-color: #1f67b4;
+  color: white;
+}
+
+td {
+  font-size: smaller;
 }

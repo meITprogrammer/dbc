@@ -26,7 +26,7 @@ function Signin() {
 
     }
   return (
-    <div className='main-container'>
+    <div className='dashboard-container'>
         <form onSubmit={signIn}>
             <div>
                 <img className="fsa-logo" alt="fsa_logo" src={logo} />

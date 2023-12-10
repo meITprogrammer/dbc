@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../fb-config";
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
-import { getAuth, deleteUser } from "firebase/auth";
+import { collection, query, where, getDocs} from "firebase/firestore";
 import phoneicon from "../images/phone_icon.png"
 import emailicon from "../images/Mail.png"
 import websiteicon from "../images/web_icon.png"
@@ -16,23 +15,13 @@ function  Card () {
   const [mobile, setMobile] = useState('');
   const [website, setWebsite] = useState('');
   const [linkedin, setLinkedin] = useState('');
-  const [password, setPassword] = useState('');
-  //const [companyLogo, setCompanyLogo] = useState();
   const [profilePhoto, setProfilePhoto] = useState();
-  const [error, setError] = useState();
-
-  const [qrcode, setQrcode] = useState('');
-  const [url, setUrl] = useState('');
-  const [key, setKey] = useState();
   const params = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {  
-    setKey(params.id)
-    //console.log("Message from Context"+value);
-    console.log("Use effect executed show.js key"+params.id);
-    getCard();
-  }, []);
+    getCard(params.id);
+  }, [params.id]);
 
   const getCard = async () => {
     console.log("Get board executed"+params.id);
@@ -57,7 +46,6 @@ function  Card () {
                 setWebsite(userData.website);
                 setLinkedin(userData.linkedin);
                 setEmail(userData.email);
-                setPassword(userData.password);
                 setProfilePhoto(userData.profilePhoto);
                 // setCompanyLogo(userData.companyLogo);
               });
@@ -73,9 +61,9 @@ function  Card () {
     navigate(`/card/qrcode/${email}`);
  }
  
- const previousPage = () => {
-  navigate(-1)
-};
+//  const previousPage = () => {
+//   navigate(-1)
+// };
     return (
       <div>
         {profilePhoto ? (
@@ -83,7 +71,7 @@ function  Card () {
            <div>
             <div className="card-details">
                <div>
-                <img src={profilePhoto} className="profile-photo"/>
+                <img src={profilePhoto} className="profile-photo" alt="bizcard"></img>
                </div>
                 <div>
                   <h2 className="profile-name">{name}</h2>
